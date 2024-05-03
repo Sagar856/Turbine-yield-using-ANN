@@ -57,11 +57,19 @@ prediction_values = np.array(input_values)
 
 # CDP	GTEP	TIT 	TAT 	AFDP	CO	AT
 
+col1, col2, col3 = st.columns([0.9, 1, 1])
+col4, col5, col6 = st.columns([1, 1, 1])
+
+with col2:
+    st.write('All fields are mandatory *')
+
 # Predicting Turbine yield based on given inputs
-st.write('All fields are mandatory *')
-if st.button('Check Output'):
-    predicted_output = model.predict(prediction_values)
-    st.text(predicted_output[0][0])
+with col5:
+    if st.button('Check Output'):
+        predicted_output = model.predict(prediction_values)
+        st.text(predicted_output[0][0])
+
+# st.markdown('<div style="text-align: center">aasdsvsd</div>', unsafe_allow_html=True)
 
 st.divider()
-st.page_link("https://github.com/Sagar856/Car-Price-Prediction-Model-SB.git",label = 'Click here -- Git-hub source code')
+st.page_link("https://github.com/Sagar856/Turbine-yield-using-ANN.git",label = 'Click here -- Git-hub source code')
